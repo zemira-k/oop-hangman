@@ -43,7 +43,7 @@ over. The class should also have the following properties and methods:
 - **`word`**: an array of lowercase letters that represents the secret word.
 - **`remainingGuesses`**: a number that indicates how many wrong guesses are
   left.
-- **`guessedLetters`**: a set that stores the letters that have been guessed by
+- **`guessedLetters`**: an array that stores the letters that have been guessed by
   the player.
 - **`status`**: a string that indicates the current status of the game. It can
   be one of the following values: “playing”, “failed”, or “finished”.
@@ -84,13 +84,17 @@ and creating an instance of the `Hangman` class. It should do the following:
 - Define a function called **`render()`** that updates the `puzzle` and `status`
   paragraphs with their respective values from `hangman.getPuzzle()` and
   `hangman.getStatusMessage()`.
+    - The function should display the `puzzle`, `status`, and guessed letter values in the appropriate HTML elements. 
+    - The function should NOT display any duplicate letters from the guessed letter array. 
+    - The function should use the methods and properties of the `hangman` object to get the values. 
 - Call `render()` once at the beginning of your script to display the initial
   state of the game to the player.
 - Add an event listener to the `window` object that listens for the `“keypress”`
   event. The callback function should do the following: - Get the pressed key
-  from the event object and store it in a variable called **`guess`**. - Call
-  `hangman.makeGuess(guess)` to update the game state with the player’s guess.
-- Call `render()` again to display the updated state of the game to the player.
+  from the event object and store it in a variable called **`guess`**. 
+- Call `hangman.makeGuess(guess)` to update the game state with the player’s guess.
+- Call `render()` again to display the updated state of the game to the player. 
+
 
 Save your files and open `index.html` in your browser. You should see a web page
 with a puzzle and a status message. You should be able to play the hangman game
