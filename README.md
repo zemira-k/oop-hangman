@@ -48,9 +48,10 @@ over. The class should also have the following properties and methods:
 - **`status`**: a string that indicates the current status of the game. It can
   be one of the following values: “playing”, “failed”, or “finished”.
 - **`getPuzzle()`**: a method that returns a string that represents the current
-  state of the puzzle. It should replace the unguessed letters with asterisks
-  (*), and keep the guessed letters and spaces as they are. For example, if the
-  word is “cat” and the guessed letters are “a” and “t”, it should return “*at”.
+  state of the puzzle.
+  - It should replace the unguessed letters with asterisks (*), and keep the
+    guessed letters and spaces as they are. For example, if the word is “cat”
+    and the guessed letters are “a” and “t”, it should return “*at”.
 - **`makeGuess(guess)`**: a method that takes a single letter as a parameter and
   updates the game state accordingly.
   - It should check if the guess is unique and valid (a single lowercase
@@ -60,28 +61,31 @@ over. The class should also have the following properties and methods:
     method called **calculateStatus()** to update the `status` property based on
     the current state of the game.
 - **`calculateStatus()`**: a method that updates the `status` property based on
-  the current state of the game. It should check if the player has guessed all
-  the letters in the word, in which case it should set the `status` to
-  `“finished”`. It should also check if the player has run out of guesses, in
-  which case it should set the `status` to `“failed”`. Otherwise, it should set
-  the `status` to `“playing”`.
+  the current state of the game.
+  - It should check if the player has guessed all the letters in the word, in
+    which case it should set the `status` to `“finished”`.
+  - It should also check if the player has run out of guesses, in which case it
+    should set the `status` to `“failed”`. Otherwise, it should set the `status`
+    to `“playing”`.
 - **`getStatusMessage()`**: a method that returns a string that represents a
-  message to display to the player based on the status of the game. It should
-  use different messages for each possible status value. For example, if the
-  `status` is `“playing”`, it should return something like
-  `“Remaining Guesses: 5”`. If the `status` is `“failed”`, it should return
-  something like `“Nice try! The word was cat”`. If the `status` is
-  `“finished”`, it should return something like
-  `“Great work! You guessed the word!”`.
+  message to display to the player based on the status of the game.
+  - It should use different messages for each possible status value. For
+    example, if the `status` is `“playing”`, it should return something like
+    `“Remaining Guesses: 5”`.
+  - If the `status` is `“failed”`, it should return something like
+    `“Nice try! The word was cat”`.
+  - If the `status` is `“finished”`, it should return something like
+    `“Great work! You guessed the word!”`.
 
 The **`script.js`** file should contain the code for interacting with the DOM
 and creating an instance of the `Hangman` class. It should do the following:
 
 - Define a global variable called **`hangman`** and assign it to a new instance
-  of `Hangman` with a random word and a fixed number of guesses. You can use any
-  words you like, but make sure they are lowercase and have no special
-  characters or numbers. You can also use any number of guesses you like, but
-  make sure it is reasonable for the difficulty level of your words.
+  of `Hangman` with a random word and a fixed number of guesses.
+  - You can use any words you like, but make sure they are lowercase and have no
+    special characters or numbers.
+    - You can also use any number of guesses you like, but make sure it is
+      reasonable for the difficulty level of your words.
 - Define a function called **`render()`** that updates the `puzzle` and `status`
   paragraphs with their respective values from `hangman.getPuzzle()` and
   `hangman.getStatusMessage()`.
@@ -94,8 +98,10 @@ and creating an instance of the `Hangman` class. It should do the following:
 - Call `render()` once at the beginning of your script to display the initial
   state of the game to the player.
 - Add an event listener to the `window` object that listens for the `“keypress”`
-  event. The callback function should do the following: - Get the pressed key
-  from the event object and store it in a variable called **`guess`**.
+  event.
+  - The callback function should do the following:
+    - Get the pressed key from the event object and store it in a variable
+      called **`guess`**.
 - Call `hangman.makeGuess(guess)` to update the game state with the player’s
   guess.
 - Call `render()` again to display the updated state of the game to the player.
