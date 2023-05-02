@@ -43,8 +43,8 @@ over. The class should also have the following properties and methods:
 - **`word`**: an array of lowercase letters that represents the secret word.
 - **`remainingGuesses`**: a number that indicates how many wrong guesses are
   left.
-- **`guessedLetters`**: an array that stores the letters that have been guessed by
-  the player.
+- **`guessedLetters`**: an array that stores the letters that have been guessed
+  by the player.
 - **`status`**: a string that indicates the current status of the game. It can
   be one of the following values: “playing”, “failed”, or “finished”.
 - **`getPuzzle()`**: a method that returns a string that represents the current
@@ -52,12 +52,13 @@ over. The class should also have the following properties and methods:
   (*), and keep the guessed letters and spaces as they are. For example, if the
   word is “cat” and the guessed letters are “a” and “t”, it should return “*at”.
 - **`makeGuess(guess)`**: a method that takes a single letter as a parameter and
-  updates the game state accordingly. It should check if the guess is unique and
-  valid (a single lowercase letter), and if so, add it to the guessedLetters
-  set. It should also decrement the remainingGuesses by one if the guess is not
-  in the word. Finally, it should call another method
-  called **calculateStatus()** to update the status property based on the
-  current state of the game.
+  updates the game state accordingly.
+  - It should check if the guess is unique and valid (a single lowercase
+    letter), and if so add it to the `guessedLetters` array.
+  - It should also decrement the `remainingGuesses` by one, but only if the
+    letter has not been guessed previously. Finally, it should call another
+    method called **calculateStatus()** to update the `status` property based on
+    the current state of the game.
 - **`calculateStatus()`**: a method that updates the `status` property based on
   the current state of the game. It should check if the player has guessed all
   the letters in the word, in which case it should set the `status` to
@@ -84,17 +85,20 @@ and creating an instance of the `Hangman` class. It should do the following:
 - Define a function called **`render()`** that updates the `puzzle` and `status`
   paragraphs with their respective values from `hangman.getPuzzle()` and
   `hangman.getStatusMessage()`.
-    - The function should display the `puzzle`, `status`, and guessed letter values in the appropriate HTML elements. 
-    - The function should NOT display any duplicate letters from the guessed letter array. 
-    - The function should use the methods and properties of the `hangman` object to get the values. 
+  - The function should display the `puzzle`, `status`, and guessed letter
+    values in the appropriate HTML elements.
+  - The function should NOT display any duplicate letters from the guessed
+    letter array.
+  - The function should use the methods and properties of the `hangman` object
+    to get the values.
 - Call `render()` once at the beginning of your script to display the initial
   state of the game to the player.
 - Add an event listener to the `window` object that listens for the `“keypress”`
   event. The callback function should do the following: - Get the pressed key
-  from the event object and store it in a variable called **`guess`**. 
-- Call `hangman.makeGuess(guess)` to update the game state with the player’s guess.
-- Call `render()` again to display the updated state of the game to the player. 
-
+  from the event object and store it in a variable called **`guess`**.
+- Call `hangman.makeGuess(guess)` to update the game state with the player’s
+  guess.
+- Call `render()` again to display the updated state of the game to the player.
 
 Save your files and open `index.html` in your browser. You should see a web page
 with a puzzle and a status message. You should be able to play the hangman game
